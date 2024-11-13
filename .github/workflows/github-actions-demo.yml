@@ -31,7 +31,7 @@ jobs:
       # 安装 theme 依赖
       - name: Install theme dependencies
         run: npm install
-        working-directory: /themes/next
+        working-directory: themes/next
 
       # 生成 Hexo 博客静态文件
       - name: Build Hexo
