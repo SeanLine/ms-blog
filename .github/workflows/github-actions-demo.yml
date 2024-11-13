@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          deploy_key: ${{ secrets.PERSONAL_TOKEN  }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN  }}
           # github_token: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 自动生成的令牌
           publish_dir: ./public # Hexo 的生成目录是 './public'
           publish_branch: gh-pages # 部署到 main 分支
