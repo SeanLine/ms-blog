@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest # 使用 Ubuntu 最新版本的 GitHub Runner
 
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ secrets  }} event."
+      - run: echo "🎉 The job was automatically triggered by a ${{ secrets.ACTIONS_DEPLOY_KEY }} event."
       # 检出 Hexo 项目的代码
       - name: Checkout code
         uses: actions/checkout@v2
