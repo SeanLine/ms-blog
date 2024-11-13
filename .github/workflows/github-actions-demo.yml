@@ -26,7 +26,7 @@ jobs:
 
       # 生成 Hexo 博客静态文件
       - name: Build Hexo
-        run: npm run generate # Hexo 的默认生成命令是 'hexo generate'
+        run: npm run build # Hexo 的默认生成命令是 'hexo generate'
 
       # 部署静态文件到 GitHub Pages
       - name: Deploy to GitHub Pages
