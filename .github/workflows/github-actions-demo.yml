@@ -28,6 +28,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # 安装 theme 依赖
+      - name: Install theme dependencies
+        run: npm install
+        working-directory: ./theme/next
+
       # 生成 Hexo 博客静态文件
       - name: Build Hexo
         run: npm run build # Hexo 的默认生成命令是 'hexo generate'
