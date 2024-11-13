@@ -1,0 +1,38 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 当 main 分支有推送时触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # 使用 Ubuntu 最新版本的 GitHub Runner
+
+    steps:
+      # 检出 Hexo 项目的代码
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      # 安装 Hexo 依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 生成 Hexo 博客静态文件
+      - name: Build Hexo
+        run: npm run generate # Hexo 的默认生成命令是 'hexo generate'
+
+      # 部署静态文件到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # 使用 GitHub 自动生成的令牌
+          publish_dir: ./public # Hexo 的生成目录是 './public'
+          target_branch: main # 部署到 main 分支
+          repository: seanline/seanline.github.io # 确保部署到正确的仓库
