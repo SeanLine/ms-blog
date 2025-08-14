@@ -7,14 +7,41 @@ tags:
 ## 新建分支
 
 - git checkout -b <branch-name>
+
+### 基于远程建立分支
+
 - git fetch origin
-- git checkout -b <branch-name> origin/<远程分支>
+- git branch --no-track <branch-name> origin/<远程分支>
+- git branch <branch-name> <本地分支>
+- git checkout --no-track -b <branch-name> origin/<远程分支>
+
+### 分支推上远程
+
 - git push origin <branch-name>
 
-## 删除分支
+### 拉去远程分支到本地，并跟踪远程分支
+
+- git checkout --track origin/<branch-name>
+
+### 修改分支名
+
+- git branch -m <old-branch-name> <new-branch-name>
+
+### 检测分支是否在远程
+
+- git show-branch origin/<branch-name>
+
+### 删除分支
 
 - git branch -d <branch-name>
 - git push origin --delete <branch-name>
+
+### 查看本地分支关联的远程分支
+
+- git config --get branch.<branch-name>.merge
+- git config --get branch.<branch-name>.remote
+
+###
 
 ## 提交
 
@@ -42,3 +69,4 @@ tags:
 - git reset --hard origin/<branch-name>
 - git reset --hard HEAD^
 - git reset --hard HEAD~3
+- git reset --soft HEAD~
